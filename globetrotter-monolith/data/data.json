@@ -1,0 +1,18 @@
+{
+  "users": [],
+  "destinations": [
+    {"id": 1, "name": "Kribi", "region": "Cameroon", "tags": ["beach", "relaxation"], "popularity_score": 4, "description": "Coastal town known for its beaches and waterfalls."},
+    {"id": 2, "name": "Limbe", "region": "Cameroon", "tags": ["beach", "nature"], "popularity_score": 3, "description": "Black-sand beaches at the foot of Mount Cameroon."},
+    {"id": 3, "name": "Foumban", "region": "Cameroon", "tags": ["cultural", "history"], "popularity_score": 3, "description": "Historic royal palace and craft markets."},
+    {"id": 4, "name": "Paris", "region": "France", "tags": ["city", "cultural", "romantic"], "popularity_score": 5, "description": "Iconic architecture, museums, and cuisine."},
+    {"id": 5, "name": "Marrakech", "region": "Morocco", "tags": ["cultural", "adventure"], "popularity_score": 4, "description": "Vibrant markets and desert excursions."},
+    {"id": 6, "name": "Cape Town", "region": "South Africa", "tags": ["adventure", "nature", "beach"], "popularity_score": 5, "description": "Mountains, coastline, and wildlife in one city."},
+    {"id": 7, "name": "Dubai", "region": "UAE", "tags": ["city", "luxury"], "popularity_score": 5, "description": "Ultramodern skyline and desert adventures."},
+    {"id": 8, "name": "Zanzibar", "region": "Tanzania", "tags": ["beach", "relaxation", "cultural"], "popularity_score": 4, "description": "Spice island with historic Stone Town."},
+    {"id": 9, "name": "Bali", "region": "Indonesia", "tags": ["beach", "nature", "relaxation"], "popularity_score": 5, "description": "Rice terraces, temples, and surf beaches."},
+    {"id": 10, "name": "Cairo", "region": "Egypt", "tags": ["history", "cultural"], "popularity_score": 4, "description": "Pyramids, museums, and Nile river cruises."}
+  ],
+  "itineraries": [],
+  "next_user_id": 1,
+  "next_itinerary_id": 1
+}
