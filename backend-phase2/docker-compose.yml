@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  user-service:
+    build: ./user-service
+    ports: ["5001:5001"]
+    environment:
+      - BASTOS_SECRET_KEY=change-me-in-production
+      - PORT=5001
+    volumes:
+      - ./user-service/data:/app/data
+
+  place-service:
+    build: ./place-service
+    ports: ["5002:5002"]
+    environment:
+      - BASTOS_SECRET_KEY=change-me-in-production
+      - PORT=5002
+    volumes:
+      - ./place-service/data:/app/data
+
+  review-service:
+    build: ./review-service
+    ports: ["5003:5003"]
+    environment:
+      - BASTOS_SECRET_KEY=change-me-in-production
+      - PLACE_SERVICE_URL=http://place-service:5002
+      - PORT=5003
+    volumes:
+      - ./review-service/data:/app/data
+    depends_on:
+      - place-service
+
+  api-gateway:
+    build: ./api-gateway
+    ports: ["5000:5000"]
+    environment:
+      - BASTOS_SECRET_KEY=change-me-in-production
+      - USER_SERVICE_URL=http://user-service:5001
+      - PLACE_SERVICE_URL=http://place-service:5002
+      - REVIEW_SERVICE_URL=http://review-service:5003
+      - PORT=5000
+    depends_on:
+      - user-service
+      - place-service
+      - review-service
