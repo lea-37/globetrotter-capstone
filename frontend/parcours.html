@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mon parcours — Bastos Explorer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="stamp-icon">BE</span> Bastos Explorer</a>
+    <div class="nav-links">
+      <a href="explore.html" data-i18n="navExplore">Explorer</a>
+      <a href="parcours.html" class="active" data-i18n="navParcours">Mon parcours</a>
+      <a href="about.html" data-i18n="navAbout">À propos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langToggle" onclick="toggleLanguage()" aria-label="Changer de langue">FR</button>
+      <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Changer de thème">🌙</button>
+      <span id="navAuthSlot"></span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:36px;">
+  <div class="hero-inner">
+    <div class="eyebrow">Le carnet</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);" data-i18n="parcoursTitle">Mon parcours à Bastos</h1>
+    <p data-i18n="parcoursSub">Composez une visite en plusieurs étapes et voyez l'itinéraire combiné.</p>
+  </div>
+</header>
+
+<main class="wrap" style="padding-top:26px;">
+  <div class="two-col">
+    <div>
+      <h2 class="section-title" style="margin-top:0;font-size:20px;" data-i18n="parcoursStops">Étapes</h2>
+      <div id="parcoursList"></div>
+    </div>
+    <div>
+      <h2 class="section-title" style="margin-top:0;font-size:20px;" data-i18n="mapTitle">Carte &amp; itinéraire</h2>
+      <div class="map-box" id="parcoursMap"></div>
+      <div id="parcoursSummary" style="margin-top:12px;"></div>
+    </div>
+  </div>
+</main>
+
+<footer>Bastos Explorer · Carnet de quartier · Flask + JSON storage</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+<script>document.addEventListener("DOMContentLoaded", initParcoursPage);</script>
+</body>
+</html>

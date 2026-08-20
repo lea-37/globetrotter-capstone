@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Bastos Explorer — Le carnet du quartier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bastos Explorer — découvrez restaurants, hôtels, écoles, cliniques, supermarchés, marchés et stations-service du quartier Bastos à Yaoundé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="stamp-icon">BE</span> Bastos Explorer</a>
+    <div class="nav-links">
+      <a href="about.html" data-i18n="navAbout">À propos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langToggle" onclick="toggleLanguage()" aria-label="Changer de langue">FR</button>
+      <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Changer de thème">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Quartier Bastos · Yaoundé</div>
+    <h1>Le carnet du<br>quartier Bastos</h1>
+    <p>Restaurants, hôtels, écoles, cliniques, supermarchés, marchés et stations-service — un seul carnet pour se repérer et s'orienter dans le quartier diplomatique de Yaoundé.</p>
+  </div>
+  <div class="perf"></div>
+</header>
+
+<main class="wrap" style="padding-top:8px;">
+  <div id="authBanner" class="error-msg" style="max-width:520px;"></div>
+
+  <div class="ticket">
+    <div class="stub">
+      <span class="mono lbl">Accès</span>
+    </div>
+    <div class="ticket-body">
+      <div class="auth-tabs">
+        <button id="tabLogin" class="active" type="button">Se connecter</button>
+        <button id="tabRegister" type="button">Créer un compte</button>
+      </div>
+
+      <form id="formLogin">
+        <h2>Bon retour</h2>
+        <p class="sub">Connectez-vous pour accéder au carnet complet de Bastos.</p>
+        <div class="error-msg" id="loginError"></div>
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" required autocomplete="current-password">
+        </div>
+        <button class="btn block" type="submit" style="position:relative;">Se connecter</button>
+        <span class="stamp" id="stampLogin">VISÉ ✓</span>
+      </form>
+
+      <form id="formRegister" style="display:none;">
+        <h2>Rejoindre le carnet</h2>
+        <p class="sub">Créez un compte pour explorer Bastos et laisser des avis.</p>
+        <div class="error-msg" id="registerError"></div>
+        <div class="field">
+          <label for="regUsername">Nom d'utilisateur</label>
+          <input type="text" id="regUsername" required>
+        </div>
+        <div class="field">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="regPassword">Mot de passe (6 caractères min.)</label>
+          <input type="password" id="regPassword" required minlength="6" autocomplete="new-password">
+        </div>
+        <button class="btn block" type="submit" style="position:relative;">Créer mon compte</button>
+        <span class="stamp" id="stampRegister">VISÉ ✓</span>
+      </form>
+    </div>
+  </div>
+
+  <p class="hint" style="margin-top:20px;">Toutes les rubriques du carnet (lieux, carte, itinéraires, avis) sont réservées aux membres connectés.</p>
+</main>
+
+<footer>Bastos Explorer · Carnet de quartier · Flask + JSON storage</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script>document.addEventListener("DOMContentLoaded", initAuthPage);</script>
+</body>
+</html>

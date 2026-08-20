@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Bastos Explorer — design tokens
+   Signature: the "carnet de quartier" (neighbourhood passbook) motif —
+   perforated ticket stubs, a visa-stamp confirmation, a dashed tear-line —
+   fitting for Bastos, Yaoundé's diplomatic/embassy quarter.
+   ========================================================================== */
+:root{
+  --ink:#0E3B36;
+  --ink-deep:#092723;
+  --sand:#F1E7D6;
+  --sand-dark:#E4D5BC;
+  --paper:#FBF6EC;
+  --coral:#E2703A;
+  --gold:#B98B2E;
+  --muted:#7A6F5E;
+  --cream:#FAF6EC;
+  --line:#C9BBA0;
+  --ok:#3F9767;
+  --text:#0E3B36;
+  --bg:var(--sand);
+  --card:var(--paper);
+  --shadow:0 1px 0 rgba(0,0,0,0.03);
+}
+
+[data-theme="dark"]{
+  --ink:#EFEAD9;
+  --ink-deep:#FFFFFF;
+  --sand:#0E1512;
+  --sand-dark:#16211C;
+  --paper:#131C18;
+  --coral:#F0895A;
+  --gold:#D8AA55;
+  --muted:#9AA79E;
+  --cream:#0E1512;
+  --line:#2B3A33;
+  --text:#EFEAD9;
+  --bg:var(--sand);
+  --card:var(--paper);
+  --shadow:0 1px 0 rgba(0,0,0,0.4);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  transition:background .2s ease, color .2s ease;
+}
+a{color:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 80px;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+:focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+
+/* ---------- NAVBAR ---------- */
+.nav{
+  background:var(--ink);
+  color:var(--cream);
+  position:sticky; top:0; z-index:50;
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Fraunces',serif;font-weight:600;font-size:20px;
+  text-decoration:none;color:var(--cream);
+}
+.brand .stamp-icon{
+  width:30px;height:30px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);
+}
+.nav-links{display:flex;gap:22px;align-items:center;flex-wrap:wrap;}
+.nav-links a{
+  text-decoration:none;color:#CFE3DF;font-size:14px;font-weight:500;
+  padding:6px 2px;border-bottom:2px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--cream);border-bottom-color:var(--coral);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+.icon-btn{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.22);
+  color:var(--cream);
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;
+}
+.icon-btn:hover{background:rgba(255,255,255,0.16);}
+.user-chip{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+  padding:7px 12px;border-radius:100px;display:flex;align-items:center;gap:8px;
+}
+.user-chip button{
+  background:none;border:none;color:var(--coral);cursor:pointer;font-weight:600;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:0;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--ink);color:var(--cream);
+  padding:52px 0 0;position:relative;overflow:hidden;
+}
+.hero-inner{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:14px;
+}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5.4vw,60px);
+  line-height:1.04;margin:0 0 12px;letter-spacing:-0.5px;
+}
+.hero p{font-size:16px;color:#CFE3DF;max-width:560px;margin:0 0 30px;line-height:1.6;}
+
+.perf{height:34px;background:var(--sand);border-radius:34px 34px 0 0;position:relative;margin-top:10px;}
+.perf::before{
+  content:"";position:absolute;top:-17px;left:0;right:0;height:34px;
+  background-image:radial-gradient(circle 17px, var(--sand) 17px, transparent 17px);
+  background-size:56px 34px;background-repeat:repeat-x;background-position:center top;
+}
+
+/* ---------- CARDS / TICKETS ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);
+}
+.section-title{
+  font-family:'Fraunces',serif;font-weight:600;font-size:26px;margin:44px 0 6px;
+}
+.section-sub{color:var(--muted);font-size:14px;margin:0 0 24px;}
+
+/* filter bar */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;
+  padding:9px 15px;border-radius:100px;border:1px solid var(--line);
+  background:var(--card);color:var(--text);cursor:pointer;text-transform:uppercase;
+}
+.chip.active{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.search-row{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+.search-row input, .search-row select{
+  padding:10px 13px;border:1px solid var(--line);border-radius:8px;
+  background:var(--card);color:var(--text);font-family:'Inter',sans-serif;font-size:13.5px;
+}
+.search-row input{flex:1;min-width:200px;}
+
+/* place grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(270px,1fr));gap:20px;}
+.place-card{
+  overflow:hidden;text-decoration:none;color:var(--text);
+  display:flex;flex-direction:column;transition:transform .15s ease;
+}
+.place-card:hover{transform:translateY(-3px);}
+.place-card img{width:100%;height:150px;object-fit:cover;display:block;background:var(--sand-dark);}
+.place-card .body{padding:16px 16px 18px;}
+.place-card .cat{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:inline-block;
+}
+.place-card h3{font-family:'Fraunces',serif;font-size:18px;margin:0 0 6px;font-weight:600;}
+.place-card .addr{font-size:12.5px;color:var(--muted);margin:0 0 8px;}
+.place-card .rating{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--coral);display:flex;gap:6px;align-items:center;
+}
+
+/* ---------- FORMS / BUTTONS ---------- */
+.field{margin-bottom:14px;}
+.field label{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:5px;
+}
+.field input, .field textarea, .field select{
+  width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:7px;
+  background:var(--paper);font-family:'Inter',sans-serif;font-size:14px;color:var(--text);
+}
+.btn{
+  background:var(--ink);color:var(--cream);border:none;padding:11px 20px;border-radius:8px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;
+}
+.btn:hover{background:var(--ink-deep);}
+.btn.secondary{background:transparent;border:1px solid var(--ink);color:var(--text);}
+.btn.block{width:100%;}
+.error-msg{
+  background:rgba(226,112,58,0.12);border:1px solid var(--coral);color:var(--coral);
+  padding:10px 13px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;
+}
+.error-msg.show{display:block;}
+.hint{font-size:12px;color:var(--muted);margin-top:8px;}
+
+/* passport stamp animation */
+.stamp{
+  position:absolute;top:14px;right:18px;font-family:'IBM Plex Mono',monospace;font-weight:700;
+  font-size:13px;letter-spacing:2px;color:var(--ok);border:2.5px solid var(--ok);border-radius:8px;
+  padding:5px 10px;transform:rotate(8deg) scale(0);opacity:0;pointer-events:none;
+}
+.stamp.show{animation:stampIn .45s cubic-bezier(.2,1.4,.4,1) forwards;}
+@keyframes stampIn{
+  0%{transform:rotate(8deg) scale(2.2);opacity:0;}
+  60%{transform:rotate(8deg) scale(.92);opacity:1;}
+  100%{transform:rotate(8deg) scale(1);opacity:1;}
+}
+
+/* ---------- TICKET (login/register) ---------- */
+.ticket{
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  display:grid;grid-template-columns:88px 1fr;position:relative;box-shadow:var(--shadow);
+  max-width:520px;
+}
+.stub{
+  background:var(--ink);color:var(--cream);border-radius:14px 0 0 14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:16px 8px;gap:10px;position:relative;
+}
+.stub .lbl{
+  font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.stub::after{content:"";position:absolute;right:-1px;top:0;bottom:0;width:0;border-left:2px dashed var(--sand-dark);}
+.ticket-body{padding:24px 26px 26px;position:relative;overflow:hidden;}
+.ticket-body h2{font-family:'Fraunces',serif;font-size:24px;margin:0 0 4px;}
+.ticket-body .sub{font-size:13px;color:var(--muted);margin:0 0 20px;}
+
+.auth-tabs{display:flex;gap:8px;margin-bottom:20px;}
+.auth-tabs button{
+  flex:1;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--card);
+  font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;cursor:pointer;color:var(--text);
+}
+.auth-tabs button.active{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+
+/* ---------- MAP ---------- */
+.map-box{height:340px;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+.map-box.small{height:220px;}
+.route-info{
+  display:flex;gap:18px;flex-wrap:wrap;margin:14px 0;font-family:'IBM Plex Mono',monospace;font-size:13px;
+}
+.route-info .stat{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 14px;}
+.route-info .stat b{color:var(--coral);}
+
+/* ---------- REVIEWS ---------- */
+.review{border-bottom:1px solid var(--line);padding:14px 0;}
+.review:last-child{border-bottom:none;}
+.review .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.review .who{font-weight:600;font-size:13.5px;}
+.review .stars{color:var(--gold);font-size:13px;letter-spacing:1px;}
+.review .comment{font-size:13.5px;color:var(--text);}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+  padding:34px 0;border-top:1px solid var(--line);margin-top:50px;
+}
+
+/* ---------- UTIL ---------- */
+.two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;}
+@media (max-width:880px){ .two-col{grid-template-columns:1fr;} .ticket{grid-template-columns:1fr;} .stub{flex-direction:row;padding:10px;} .stub::after{display:none;} .stub .lbl{writing-mode:horizontal-tb;transform:none;} }
+
+/* ---------- FAVORITES / WEATHER / CREATIVE EXTRAS ---------- */
+.place-card{position:relative;}
+.fav-btn{
+  position:absolute;top:10px;right:10px;z-index:2;
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,0.85);color:var(--line);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+[data-theme="dark"] .fav-btn{background:rgba(0,0,0,0.55);}
+.fav-btn.active{color:var(--coral);border-color:var(--coral);}
+.weather-box{
+  display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:12px 16px;margin-bottom:22px;flex-wrap:wrap;
+}
+.weather-now{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;}
+.weather-icon{font-size:22px;}
+.weather-temp{font-size:18px;font-weight:600;color:var(--coral);}
+.weather-box p{margin:0;flex:1;min-width:200px;}
+
+.badge{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  background:var(--sand-dark);color:var(--text);padding:4px 9px;border-radius:6px;margin:0 6px 6px 0;
+}
+.locked-gate{
+  max-width:560px;margin:60px auto;text-align:center;padding:40px 20px;
+}
+.locked-gate .stamp-big{
+  font-family:'IBM Plex Mono',monospace;border:2.5px solid var(--coral);color:var(--coral);
+  display:inline-block;padding:8px 18px;border-radius:10px;transform:rotate(-4deg);margin-bottom:20px;font-weight:700;letter-spacing:2px;
+}

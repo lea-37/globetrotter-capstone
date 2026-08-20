@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>À propos — Bastos Explorer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="stamp-icon">BE</span> Bastos Explorer</a>
+    <div class="nav-links">
+      <a href="explore.html" data-i18n="navExplore">Explorer</a>
+      <a href="about.html" class="active" data-i18n="navAbout">À propos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langToggle" onclick="toggleLanguage()" aria-label="Changer de langue">FR</button>
+      <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Changer de thème">🌙</button>
+      <span id="navAuthSlot"></span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:36px;">
+  <div class="hero-inner">
+    <div class="eyebrow">À propos</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);">Le carnet, et sa gardienne</h1>
+  </div>
+</header>
+
+<main class="wrap" style="padding-top:34px;">
+
+  <section class="card" style="padding:28px 30px;margin-bottom:26px;">
+    <h2 style="font-family:'Fraunces',serif;margin-top:0;">Le logiciel</h2>
+    <p>
+      <strong>Bastos Explorer</strong> est un carnet numérique du quartier Bastos à Yaoundé : restaurants,
+      hôtels, cliniques, écoles, supermarchés, marchés et stations-service, réunis en un seul endroit,
+      avec une carte, des itinéraires et des avis laissés par la communauté.
+    </p>
+    <p>
+      L'application repose sur un frontend en HTML, CSS et JavaScript pur (sans framework, sans étape de
+      build), et un backend en <strong>Python Flask</strong> qui stocke ses données dans des fichiers
+      <strong>JSON</strong> plutôt qu'une base de données. Ce choix suit la contrainte du projet : un
+      stockage simple, lisible, et facile à faire évoluer plus tard vers une vraie base de données.
+    </p>
+    <p>Le backend est organisé autour de quelques idées de conception (design patterns) volontairement visibles dans le code :</p>
+    <ul style="line-height:1.8;">
+      <li><strong>Singleton</strong> — un seul gestionnaire de fichier JSON par ressource, pour que toutes les lectures/écritures passent par le même point.</li>
+      <li><strong>Repository</strong> — des classes dédiées (utilisateurs, lieux, avis) qui isolent le reste du code de la façon dont les données sont stockées.</li>
+      <li><strong>Factory</strong> — une fonction <code>create_app()</code> qui construit l'application Flask de façon explicite et reproductible.</li>
+      <li><strong>Decorator</strong> — <code>@login_required</code> protège les routes qui exigent une connexion, sans dupliquer la logique de vérification.</li>
+      <li><strong>Strategy</strong> — le tri des lieux (par nom, par note, par distance) est interchangeable selon ce que demande la personne connectée.</li>
+    </ul>
+    <p>
+      La carte utilise <strong>OpenStreetMap</strong> (via Leaflet) et le calcul d'itinéraire s'appuie sur le
+      service de routage ouvert <strong>OSRM</strong>, à partir de la position du navigateur jusqu'au lieu choisi.
+    </p>
+    <p>
+      La page Explorer propose aussi un sélecteur <strong>FR/EN</strong> (interface et fiches de lieux
+      traduites), un widget de <strong>météo en direct</strong> pour Bastos (via l'API ouverte Open-Meteo),
+      une liste de <strong>favoris</strong> personnelle, et un bouton « Surprends-moi » qui ouvre un lieu
+      au hasard.
+    </p>
+    <p class="hint">
+      Les lieux affichés sont établis à partir d'annuaires publics de Bastos. Les photos sont de vraies
+      photographies camerounaises sous licence libre (Wikimedia Commons — Yaoundé et le Cameroun), une par
+      catégorie plutôt qu'une par établissement précis, faute de photo officielle de chaque façade ; le
+      champ <code>image</code> de chaque fiche, dans <code>places.json</code>, peut être remplacé par une
+      vraie photo du lieu si vous en prenez une.
+    </p>
+  </section>
+
+  <section class="card" style="padding:28px 30px;">
+    <h2 style="font-family:'Fraunces',serif;margin-top:0;">La créatrice</h2>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap;">
+      <div style="width:84px;height:84px;border-radius:50%;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:30px;flex:none;">
+        FL
+      </div>
+      <div>
+        <h3 style="font-family:'Fraunces',serif;margin:0 0 4px;">Fomate Lea</h3>
+        <p class="hint" style="margin:0 0 10px;">Étudiante en cybersécurité — conceptrice de Bastos Explorer.</p>
+        <p>
+          Bastos Explorer est né du souhait de rendre plus lisible un quartier que beaucoup traversent
+          sans vraiment le connaître : où manger, où dormir, où se soigner, où faire ses courses. La
+          sécurité des comptes (mots de passe hachés, accès par jeton) reflète cette sensibilité
+          cybersécurité, même sur un projet pédagogique à échelle d'un quartier.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Bastos Explorer · Carnet de quartier · Flask + JSON storage</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
